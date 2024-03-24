@@ -31,21 +31,23 @@ public class MyWorld extends World
     };
     
     
+    
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(840, 600, 1); 
-        Level1();
-        Menu menu = new Menu();
-        addObject(menu,720, 300 );
-        addObject(new GoldDisplay(), 720, 30);
-        addObject(new Spider(),26, 90 );
+      
+        //Level1();
+       // Menu menu = new Menu();
+        //addObject(menu,720, 300 );
+        //addObject(new GoldDisplay(), 720, 30);
+        //(new Spider(),26, 90 );
     
     }
     
     public void act(){
-         addInTowers();
-         this.gold++;
+         //addInTowers();
+         //this.gold++;
     }
     
     private void Level1(){
@@ -56,9 +58,6 @@ public class MyWorld extends World
                 }
             }
         }
-        
-        
-       
     }
     
     public void addInTowers(){
