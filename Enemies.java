@@ -23,12 +23,47 @@ public class Enemies extends Actor
         
     }
     
+    private void ensureRotation(int current_i, int current_j){
+        Stages stage = (Stages) getWorld();
+        int[][] map = stage.map;
+        
+        
+        for (int i = (current_i < map.length ) ? current_i  : current_i + 1    ; i < map.length; i++) {
+        
+        // If starting from 'current_i', begin at 'current_j'. Otherwise, start at the beginning of the row.
+        int startJ = (i  ==  current_i) ? current_j + 1: 0  ;
+        
+        // Iterate over columns starting from 'startJ' to the end of the current row
+        for (int j = startJ; j < map[i].length; j++) {
+            // Perform your operation here
+            // For example, checking or setting the rotation based on the value of map[i][j]
+            
+            if ( map[i][j] == 1 ){
+                    System.out.println("current_i " + current_i  + " current_j " + current_j  ); 
+                 System.out.println("next_i " + i  + " next_j " + j  );   
+                 return;
+            }
+        }
+        
+        }
+    }
+    
+    
     public void moveToNextBlock(){
         
-        MyWorld myWorld = (MyWorld) getWorld();
-        int[][] map = myWorld.map;
-        System.out.println(map[0][0]);
+        Stages stage = (Stages) getWorld();
+        int[][] map = stage.map;
+        //System.out.println(map[0][0]);
+        int i = getY() / 60;
+        int j = getX() / 60;
         
-        move(5);
+        ensureRotation(i,j);
+      
+        //System.out.println("current_i " + i  + " current_y " + y  );
+        //System.out.println("next_i " + next_i  + " next_y " + next_y  );
+        
+        
+        
+        move(3);
     }
 }
