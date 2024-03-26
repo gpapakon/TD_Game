@@ -14,7 +14,8 @@ public class Stages extends World
      * 
      */
     
-    public int level = 1;
+    public static int level = 1;
+    public static int score = 0;
     public static int gold = 50;
     public int map [][];
     private static int basicTowerPrice = 50;
@@ -31,7 +32,7 @@ public class Stages extends World
         GreenfootImage background = getBackground();
         background.setColor(Color.WHITE);
         background.fill();
-        addObject(new Menu(), 720, 30);
+        addObject(new Menu(), 720, 75);
     }
     
     public void act(){

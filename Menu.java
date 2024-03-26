@@ -12,24 +12,23 @@ public class Menu extends Actor
      * Act - do whatever the Menu wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public int score = 0;
+   
     public Defenders selected_defender;
     Stages game;
     
     public void act()
     {
-        setImage(new GreenfootImage("Money: "  + game.gold,50 , Color.BLACK, new Color(0,0,0,0)));
+        
         showScore();
     }
     
     public void showScore(){
-        setImage(new GreenfootImage("Score: "  + score,70 , Color.BLACK, new Color(0,0,0,0)));
+        setImage(new GreenfootImage("Level: "  + game.level +  "\nMoney: "  + game.gold + "\nScore: " + game.score ,50 , Color.BLACK, new Color(0,0,0,0)));
     }
     
     public Menu(){
-        
-        
-        getImage().scale(240, 600);
-        setImage(new GreenfootImage("Money: " + game.gold,50 , Color.BLACK, new Color(0,0,0,0)));
+     
+        getImage().scale(240, 200);
+        showScore();
     }
 }
