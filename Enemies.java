@@ -12,14 +12,21 @@ public class Enemies extends Actor
      * Act - do whatever the Enemies wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+    private double tick= 0.2; //in seconds
+    private int timer = 0;
     private int life = 50;
     private int gold_reward = 2;
     public void act()
     {
         // Add your action code here.
         
-        moveToNextBlock();
+        timer++;
+        move(3);
+         
+        if(timer >= tick * 60) {
+            moveToNextBlock(); 
+            timer = 0;
+        }
         
     }
     
@@ -54,16 +61,44 @@ public class Enemies extends Actor
         Stages stage = (Stages) getWorld();
         int[][] map = stage.map;
         //System.out.println(map[0][0]);
-        int i = getY() / 60;
-        int j = getX() / 60;
+        int i = (getY( ) -  20 ) / 60;
+        i = i < 0 ? 0 : i;
+        int j = (getX( ) +  10 ) / 60;
+        j = j < 0 ? 0 : j;
+        double bi = getY() / 60.00; // Casting 60 to float ensures that the division is floating-point
+        double bj = getX() / 60.00;
+         System.out.println("bi " + bi + "bj " + bj );
+         //i =(int) Math.round(bi - 0.5);
+        //j = (int) Math.round(bj - 0.5);
+         System.out.println("i " + i + " j " + j);
+        int right = (j + 1 <= 9) ? map[i][j + 1] : 0;
+        int left = (j -1 >= 0) ? map[i][j -1] : 0;
+        int top = (i-1 >= 0) ? map[i-1][j] : 0;
+        int bottom = (i + 1 <= 9) ? map[i+1][j] : 0;
         
-        ensureRotation(i,j);
-      
-        //System.out.println("current_i " + i  + " current_y " + y  );
-        //System.out.println("next_i " + next_i  + " next_y " + next_y  );
+        System.out.println("right " + right  );
+        System.out.println("left " + left  );
+        System.out.println("top " + top  );
+        System.out.println("bottom " + bottom  );
+        System.out.println("getRotation " + getRotation()  );
+        
+        if( getRotation() == 0 || getRotation() == 180 ){
+            if( bottom == 1){
+                setRotation(90);
+            }else if( top == 1 ){
+                setRotation(270);
+            }
+        }else if( getRotation() == 90 || getRotation() == 270 ){
+            if( left == 1){
+                setRotation(180);
+            }else if( right == 1 ){
+                setRotation(0);
+            }
+        }
         
         
         
-        move(3);
+        
+        
     }
 }
