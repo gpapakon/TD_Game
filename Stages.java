@@ -13,12 +13,15 @@ public class Stages extends World
      * Constructor for objects of class Stages.
      * 
      */
+    
+    public int level = 1;
     public static int gold = 50;
     public int map [][];
     private static int basicTowerPrice = 50;
     public int gold_per_second = 5;
     public int game_speed = 1; // in secs
     public int game_timer = 0;
+    public Defenders selected_defender;
     
     public Stages()
     {    
@@ -28,6 +31,7 @@ public class Stages extends World
         GreenfootImage background = getBackground();
         background.setColor(Color.WHITE);
         background.fill();
+        addObject(new Menu(), 720, 30);
     }
     
     public void act(){
@@ -45,9 +49,7 @@ public class Stages extends World
         this.gold += this.gold_per_second;
     }
     
-    public int getGold(){
-        return this.gold;
-    }
+    
     
     public void addInTowers(){
        

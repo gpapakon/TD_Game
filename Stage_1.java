@@ -43,7 +43,7 @@ public class Stage_1 extends Stages
         //Menu menu = new Menu();
         //addObject(menu,720, 300 );
         drawMap(map);
-        addObject(new GoldDisplay(), 720, 30);
+       
         addObject(new Spider(),26, 30 );
      
         
