@@ -12,7 +12,7 @@ public class GoldDisplay extends Actor
      * Act - do whatever the Gold wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    MyWorld game;
+    Stages game;
     public GoldDisplay(){
         setImage(new GreenfootImage("Money: " + game.gold,50 , Color.BLACK, new Color(0,0,0,0)));
     }
