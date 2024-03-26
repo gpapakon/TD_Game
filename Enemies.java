@@ -12,7 +12,7 @@ public class Enemies extends Actor
      * Act - do whatever the Enemies wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private double tick= 0.2; //in seconds
+    private double tick= 0.5; //in seconds
     private int timer = 0;
     private int life = 50;
     private int gold_reward = 2;
@@ -21,12 +21,13 @@ public class Enemies extends Actor
         // Add your action code here.
         
         timer++;
-        move(3);
+        //moveToNextBlock(); 
+       
          
         if(timer >= tick * 60) {
             moveToNextBlock(); 
             timer = 0;
-        }
+       }
         
     }
     
@@ -61,13 +62,13 @@ public class Enemies extends Actor
         Stages stage = (Stages) getWorld();
         int[][] map = stage.map;
         //System.out.println(map[0][0]);
-        int i = (getY( ) -  20 ) / 60;
+        int i = (getY( ) ) / 60;
         i = i < 0 ? 0 : i;
-        int j = (getX( ) +  10 ) / 60;
+        int j = (getX( ) ) / 60;
         j = j < 0 ? 0 : j;
         double bi = getY() / 60.00; // Casting 60 to float ensures that the division is floating-point
         double bj = getX() / 60.00;
-         System.out.println("bi " + bi + "bj " + bj );
+        System.out.println("x " + getX() + "y " + getY() );
          //i =(int) Math.round(bi - 0.5);
         //j = (int) Math.round(bj - 0.5);
          System.out.println("i " + i + " j " + j);
@@ -95,6 +96,7 @@ public class Enemies extends Actor
                 setRotation(0);
             }
         }
+         move(3);
         
         
         
