@@ -25,8 +25,7 @@ public class Stages extends World
         GreenfootImage background = getBackground();
         background.setColor(Color.WHITE);
         background.fill();
-        Game game = new Game();
-         
+
     }
     
     public void act(){
