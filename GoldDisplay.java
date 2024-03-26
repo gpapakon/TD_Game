@@ -14,6 +14,7 @@ public class GoldDisplay extends Actor
      */
     Stages game;
     public GoldDisplay(){
+        System.out.println(game.gold);
         setImage(new GreenfootImage("Money: " + game.gold,50 , Color.BLACK, new Color(0,0,0,0)));
     }
     public void act()

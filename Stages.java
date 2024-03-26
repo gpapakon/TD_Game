@@ -16,21 +16,37 @@ public class Stages extends World
     public static int gold = 50;
     public int map [][];
     private static int basicTowerPrice = 50;
+    public int gold_per_second = 5;
+    public int game_speed = 1; // in secs
+    public int game_timer = 0;
+    
     public Stages()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(840, 600, 1);
         this.map = map;
-        
         GreenfootImage background = getBackground();
         background.setColor(Color.WHITE);
         background.fill();
-
     }
     
     public void act(){
-        this.gold++;
+        
+        this.game_timer++;
+        if(game_timer >= game_speed * 60 ){
+            game_intervals();
+            game_timer = 0;
+        }
+        
         addInTowers();
+    }
+    
+    public void game_intervals(){
+        this.gold += this.gold_per_second;
+    }
+    
+    public int getGold(){
+        return this.gold;
     }
     
     public void addInTowers(){
