@@ -23,6 +23,10 @@ public class Stages extends World
     public int game_speed = 1; // in secs
     public int game_timer = 0;
     public Defenders selected_defender;
+     private GameInfo gameInfo; 
+    private LevelDisplay levelDisplay;
+    private GameInfo scoreDisplay;
+    private GoldDisplay goldDisplay;
     
     public Stages()
     {    
@@ -33,6 +37,17 @@ public class Stages extends World
         background.setColor(Color.WHITE);
         background.fill();
         addObject(new Menu(), 720, 75);
+        //gameInfo = new GameInfo();
+        //addObject(gameInfo, 720, 75); 
+        levelDisplay = new LevelDisplay(1);
+        addObject(levelDisplay, 720, 75);
+        goldDisplay = new GoldDisplay();
+        addObject(goldDisplay, 720, 100);
+    }
+    public void updateDisplays() {
+        levelDisplay.updateLevelDisplay();
+        //scoreDisplay.updateDisplay("Score: " + gameInfo.score);
+        //goldDisplay.updateDisplay("Gold: " + gameInfo.gold);
     }
     
     public void act(){
@@ -61,7 +76,7 @@ public class Stages extends World
         }
         if(Greenfoot.mouseClicked(null) && Greenfoot.getMouseInfo().getActor() instanceof  TowerSocket  ){
             System.out.println(Greenfoot.getMouseInfo().getActor());
-            addObject(new Tower(), ( Greenfoot.getMouseInfo().getX() / 60  )* 60 + 30 ,( Greenfoot.getMouseInfo().getY() / 60   )* 60 +30 );
+            addObject(new Ballista(), ( Greenfoot.getMouseInfo().getX() / 60  )* 60 + 30 ,( Greenfoot.getMouseInfo().getY() / 60   )* 60 +30 );
         }
         
     }
