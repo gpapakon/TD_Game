@@ -20,18 +20,21 @@ public class Stages extends World
     public int gold_per_second = 5;
     public int game_speed = 1; // in secs
     public int game_timer = 0;
-    public Defenders selected_defender;
     
-   
     private LevelDisplay levelDisplay;
     private ScoreDisplay scoreDisplay;
     public GoldDisplay goldDisplay;
+    
+    public Defenders selected_defender;
+    public Ballista ballista = new Ballista();
+    public Cannon cannon = new Cannon();
+    public Catapult catapult = new Catapult();
     
     public Stages(int spawn_x, int spawn_y)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(840, 600, 1);
-        
+        setSelectedDefender("Ballista");
         this.spawn_x = spawn_x;
         this.spawn_y = spawn_y;
         
@@ -46,15 +49,35 @@ public class Stages extends World
         scoreDisplay = new ScoreDisplay();
         addObject(scoreDisplay, 725, 125);
         
-        GreenfootImage defenderImage = new GreenfootImage("defender.png");         
-        DefenderMenuItem item = new DefenderMenuItem("Defender Name", 100, 200, defenderImage);
-        addObject(item, 725, 200); 
+        GreenfootImage defenderImage = new GreenfootImage("defender.png");   
+        
+        MenuItemBallista ballista = new MenuItemBallista();
+        addObject(ballista, 720, 210); 
+        
+            
+        MenuItemCannon cannon = new MenuItemCannon();
+        addObject(cannon, 720, 330); 
+        
+        MenuItemCatapult catapult = new MenuItemCatapult();
+        addObject(catapult, 720, 450); 
         
     }
     public void updateDisplays() {
         levelDisplay.updateLevelDisplay();
         //scoreDisplay.updateDisplay("Score: " + gameInfo.score);
         //goldDisplay.updateDisplay("Gold: " + gameInfo.gold);
+    }
+    
+    public void setSelectedDefender(String name){
+        if( name == "Ballista" ){
+            selected_defender = ballista;
+        }else if( name == "Catapult" ){
+            selected_defender = catapult;
+        }else{
+             selected_defender = cannon;
+        }
+        
+        System.out.println(selected_defender);
     }
     
     public void act(){
@@ -84,11 +107,8 @@ public class Stages extends World
        
       
        
-        if(Greenfoot.mouseClicked(null)){
-             System.out.println(Greenfoot.getMouseInfo().getActor());
-        }
+       
         if(Greenfoot.mouseClicked(null) && Greenfoot.getMouseInfo().getActor() instanceof  TowerSocket  ){
-            System.out.println(Greenfoot.getMouseInfo().getActor());
             addObject(new Ballista(), ( Greenfoot.getMouseInfo().getX() / 60  )* 60 + 30 ,( Greenfoot.getMouseInfo().getY() / 60   )* 60 +30 );
         }
         
