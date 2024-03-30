@@ -16,11 +16,22 @@ public class GoldDisplay extends GameInfo
     
     public GoldDisplay(){
         super("");
-        String levelText = "Gold: " + this.gold;
-        super.updateDisplay(levelText); 
+       updateDisplay();
     }
+    
+    private void updateDisplay(){
+        String text = "Gold: " + this.gold;
+        super.updateDisplay(text); 
+    }
+    
     public void act()
     {
-        // Add your action code here.
+        //gold++;
+        updateDisplay();
+        
+    }
+    
+    public void addGold(int gold){
+        this.gold += gold;
     }
 }

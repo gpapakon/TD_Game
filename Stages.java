@@ -13,36 +13,43 @@ public class Stages extends World
      * Constructor for objects of class Stages.
      * 
      */
-    
-    public static int level = 1;
-    public static int score = 0;
-    public static int gold = 50;
+    private int spawn_x;
+    private int spawn_y;
     public int map [][];
     private static int basicTowerPrice = 50;
     public int gold_per_second = 5;
     public int game_speed = 1; // in secs
     public int game_timer = 0;
     public Defenders selected_defender;
-     private GameInfo gameInfo; 
-    private LevelDisplay levelDisplay;
-    private GameInfo scoreDisplay;
-    private GoldDisplay goldDisplay;
     
-    public Stages()
+   
+    private LevelDisplay levelDisplay;
+    private ScoreDisplay scoreDisplay;
+    public GoldDisplay goldDisplay;
+    
+    public Stages(int spawn_x, int spawn_y)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(840, 600, 1);
-        this.map = map;
+        
+        this.spawn_x = spawn_x;
+        this.spawn_y = spawn_y;
+        
         GreenfootImage background = getBackground();
         background.setColor(Color.WHITE);
         background.fill();
-        addObject(new Menu(), 720, 75);
-        //gameInfo = new GameInfo();
-        //addObject(gameInfo, 720, 75); 
+        
         levelDisplay = new LevelDisplay(1);
-        addObject(levelDisplay, 720, 75);
+        addObject(levelDisplay, 725, 25);
         goldDisplay = new GoldDisplay();
-        addObject(goldDisplay, 720, 100);
+        addObject(goldDisplay, 725, 75);
+        scoreDisplay = new ScoreDisplay();
+        addObject(scoreDisplay, 725, 125);
+        
+        GreenfootImage defenderImage = new GreenfootImage("defender.png");         
+        DefenderMenuItem item = new DefenderMenuItem("Defender Name", 100, 200, defenderImage);
+        addObject(item, 725, 200); 
+        
     }
     public void updateDisplays() {
         levelDisplay.updateLevelDisplay();
@@ -62,7 +69,13 @@ public class Stages extends World
     }
     
     public void game_intervals(){
-        this.gold += this.gold_per_second;
+        //this.gold += this.gold_per_second;
+        spawn_enemies();
+    }
+    
+    
+    public void spawn_enemies(){
+        addObject(new Spider(),spawn_x, spawn_y);
     }
     
     

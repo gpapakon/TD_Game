@@ -22,8 +22,9 @@ public class Stage_1 extends Stages
         {2,0,0,0,0,0,0,0,0,0},
         {6,6,6,6,6,6,6,6,6,2},
         {0,0,0,0,0,0,0,0,0,0},
-       
     };
+    
+    
     
     
     
@@ -33,18 +34,15 @@ public class Stage_1 extends Stages
      * 
      */
     
-    
-    
-    
     public Stage_1()
     {
         
-       super();
+       super(26, 30);
         //Menu menu = new Menu();
         //addObject(menu,720, 300 );
         drawMap(map);
        
-        addObject(new Spider(),26, 30 );
+        
      
         
     }

@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Stages
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Stages\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=Stages()
+comment1.params=spawn_x\ spawn_y
+comment1.target=Stages(int,\ int)
 comment2.params=
 comment2.target=void\ updateDisplays()
 comment3.params=
@@ -10,7 +10,9 @@ comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ game_intervals()
 comment5.params=
-comment5.target=void\ addInTowers()
-comment6.params=map
-comment6.target=void\ drawMap(int[][])
-numComments=7
+comment5.target=void\ spawn_enemies()
+comment6.params=
+comment6.target=void\ addInTowers()
+comment7.params=map
+comment7.target=void\ drawMap(int[][])
+numComments=8

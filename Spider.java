@@ -13,8 +13,12 @@ public class Spider extends Enemies
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
+    private int health = 5;
+    private int gold_reward = 2;
+    private int speed = 3;
+    
     public Spider (){
-        super();
+        super(5, 2,3);
     }
     public void act()
     {

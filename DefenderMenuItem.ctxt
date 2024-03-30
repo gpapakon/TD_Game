@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=DefenderMenuItem
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ DefenderMenuItem\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=defenderName\ upgradeCost1\ upgradeCost2\ defenderImage
+comment1.target=DefenderMenuItem(java.lang.String,\ int,\ int,\ greenfoot.GreenfootImage)
+comment2.params=defenderImage
+comment2.target=greenfoot.GreenfootImage\ createMenuItemImage(greenfoot.GreenfootImage)
+comment3.params=
+comment3.target=void\ act()
+numComments=4

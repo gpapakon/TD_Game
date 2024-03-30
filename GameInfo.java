@@ -28,7 +28,7 @@ public class GameInfo extends Actor
         image.fill(); // Fill the entire image with the background color
     
         // Create a temporary image to get the width of the text
-        GreenfootImage tempTextImage = new GreenfootImage(text, 24, Color.WHITE, new Color(0, 0, 0, 0));
+        GreenfootImage tempTextImage = new GreenfootImage(text, 35, Color.WHITE, new Color(0, 0, 0, 0));
     
         // Calculate the position to center the text
         int x = (width - tempTextImage.getWidth()) / 2;

@@ -14,6 +14,7 @@ public class Defenders extends Actor
      */
     
     private int fireRate = 0 ;
+    private int basic_damage = 3;
     public void act()
     {
         // Add your action code here.
@@ -27,7 +28,7 @@ public class Defenders extends Actor
             fireRate = 0;
             
             for(Enemies eachEnemy : enemies ){
-                Projectile projectile = new Projectile();
+                Projectile projectile = new Projectile(basic_damage);
                 getWorld().addObject(projectile, getX(), getY());
                 projectile.turnTowards(eachEnemy.getX(), eachEnemy.getY());
             }

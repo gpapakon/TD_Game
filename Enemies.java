@@ -12,11 +12,23 @@ public class Enemies extends Actor
      * Act - do whatever the Enemies wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private Stages stage;
+
     private double tick= 0.05; //in seconds
     private int timer = 0;
-    private int health = 5;
-    private int gold_reward = 2;
+    
+    private int health;
+    private int gold_reward;
+    private int speed;
+    
+    public Enemies (int health ,int gold_reward, int speed ){
+        this.health = health;
+        this.gold_reward = gold_reward;
+        this.speed = speed;
+        
+        
+        
+    }
+    
     public void act()
     {
         // Add your action code here.
@@ -35,8 +47,8 @@ public class Enemies extends Actor
     
     
     public void moveToNextBlock(){
-        
         Stages stage = (Stages) getWorld();
+        
         int[][] map = stage.map;
         
         int x_offset = 0;
@@ -69,20 +81,24 @@ public class Enemies extends Actor
             setRotation(270);
         }
         
-         move(6);
+         move(this.speed);
         
     }
     
     public void hitByProjectile(){
-        Actor projectile = getOneIntersectingObject(Projectile.class);
-        if( projectile != null ){
-            this.health--;
+        Stages stage = (Stages) getWorld();
+        
+        Actor actorProjectile = getOneIntersectingObject(Projectile.class);
+        if( actorProjectile != null ){
+            Projectile projectile = (Projectile) actorProjectile;
+            
+            this.health -= projectile.damage;
             getWorld().removeObject(projectile);
         }
         
         if( health < 1){
             getWorld().removeObject(this);
-            stage.gold += 50;
+            stage.goldDisplay.addGold(this.gold_reward);
         }
     }
 }
