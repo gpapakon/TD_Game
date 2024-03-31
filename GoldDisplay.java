@@ -26,7 +26,7 @@ public class GoldDisplay extends GameInfo
     
     public void act()
     {
-        //gold++;
+        gold++;
         updateDisplay();
         
     }

@@ -62,11 +62,7 @@ public class Stages extends World
         addObject(catapult, 720, 450); 
         
     }
-    public void updateDisplays() {
-        levelDisplay.updateLevelDisplay();
-        //scoreDisplay.updateDisplay("Score: " + gameInfo.score);
-        //goldDisplay.updateDisplay("Gold: " + gameInfo.gold);
-    }
+    
     
     public void setSelectedDefender(String name){
         if( name == "Ballista" ){

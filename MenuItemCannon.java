@@ -13,7 +13,7 @@ public class MenuItemCannon extends DefenderMenuItem
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
      public MenuItemCannon() {
-        super("Cannon", 100, 200, new GreenfootImage("weapon_cannon_E.png"));
+        super("Cannon", 50, 50, new GreenfootImage("weapon_cannon_E.png"));
         
         
     }

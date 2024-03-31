@@ -14,13 +14,13 @@ public class DefenderMenuItem extends Actor
     
     GreenfootImage defenderImage;
     GreenfootImage image; 
+    
    public DefenderMenuItem(String defenderName, int upgradeCost1, int upgradeCost2, GreenfootImage defenderImage) {
         this.defenderName = defenderName;
         this.upgradeCost1 = upgradeCost1;
         this.upgradeCost2 = upgradeCost2;
         this.defenderImage = defenderImage;
-        
-        
+   
         setImage(createMenuItemImage(false));
     }
     
@@ -107,27 +107,41 @@ public class DefenderMenuItem extends Actor
         
         
         setImage(createMenuItemImage(isSelected));
-       
-        
-        
-        
-        
+               
         if (Greenfoot.mouseClicked(this)) {
             
             int mouseX = Greenfoot.getMouseInfo().getX();
             int mouseY = Greenfoot.getMouseInfo().getY();
             
-                
+           
             stage.setSelectedDefender(defenderName);
+            System.out.println(mouseX);
             
-            // Adjust these conditions based on the actual layout of your upgrade options
-            if (mouseY >= getY() - getImage().getHeight()/2 && mouseY < getY() - getImage().getHeight()/2 + 60) {
-                // Handle the first upgrade option click
-                System.out.println("Upgrade 1 selected for " + defenderName);
-            } else if (mouseY >= getY() - getImage().getHeight()/2 + 30 && mouseY < getY() + getImage().getHeight()/2) {
-                // Handle the second upgrade option click
-                System.out.println("Upgrade 2 selected for " + defenderName);
+            if( mouseX >= 700){
+                if (mouseY >= getY() - getImage().getHeight()/2 && mouseY < getY() - getImage().getHeight()/2 + 60) {
+                    // Handle the first upgrade option click
+                    System.out.println("Upgrade 1 selected for " + defenderName);
+                    upgrate("attack", defenderName);
+                } else if (mouseY >= getY() - getImage().getHeight()/2 + 30 && mouseY < getY() + getImage().getHeight()/2) {
+                    // Handle the second upgrade option click
+                    System.out.println("Upgrade 2 selected for " + defenderName);
+                }
             }
+            
+            
+        }
+    }
+    
+    public void upgrate(String upgrate, String defender){
+        System.out.println(upgrate + " " + defender);
+        Stages stage = (Stages) getWorld();
+        
+        if( defender == "Ballista" ){
+            stage.ballista.upgrate(upgrate);
+        }else if ( defender == "Cannon" ){
+            stage.cannon.upgrate(upgrate);
+        }else{
+            stage.catapult.upgrate(upgrate);
         }
     }
 }

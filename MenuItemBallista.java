@@ -14,7 +14,7 @@ public class MenuItemBallista extends DefenderMenuItem
      */
     
     public MenuItemBallista() {
-        super("Ballista", 100, 200, new GreenfootImage("weapon_ballista_E.png"));
+        super("Ballista", 50, 50, new GreenfootImage("weapon_ballista_E.png"));
         
         
     }

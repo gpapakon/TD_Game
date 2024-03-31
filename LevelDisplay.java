@@ -32,6 +32,6 @@ public class LevelDisplay extends GameInfo
      */
     public void act()
     {
-        // Add your action code here.
+        updateLevelDisplay();
     }
 }

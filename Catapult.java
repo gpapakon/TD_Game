@@ -12,8 +12,16 @@ public class Catapult extends Defenders
      * Act - do whatever the Catapult wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    public Catapult(){
+        super(1,4, 0 );
+    }
+    
     public void act()
     {
         super.act();
+    }
+    
+     public void upgrate(String type){
+        super.upgrate(type);
     }
 }

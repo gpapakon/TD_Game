@@ -13,22 +13,32 @@ public class Defenders extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    private int fireRate = 0 ;
-    private int basic_damage = 3;
+    private int fireRate;
+    private int damage;
+    private int level;
+    
+    public Defenders( int fireRate, int damage, int level){
+        
+        this.fireRate = fireRate;
+        this.damage = damage;
+        this.level = level;
+    }
+    
     public void act()
     {
-        // Add your action code here.
         enemyDetector();
     }
     
     public void enemyDetector(){
         List<Enemies> enemies = getObjectsInRange(100, Enemies.class);
          fireRate++;
+         System.out.println(this);
         if( fireRate > 9 ){
             fireRate = 0;
             
             for(Enemies eachEnemy : enemies ){
-                Projectile projectile = new Projectile(basic_damage);
+                
+                Projectile projectile = new Projectile(this.damage);
                 getWorld().addObject(projectile, getX(), getY());
                 projectile.turnTowards(eachEnemy.getX(), eachEnemy.getY());
             }
@@ -36,6 +46,13 @@ public class Defenders extends Actor
         }
        
         
+    }
+    
+     public void upgrate(String type){
+        //super.upgrate(type);
+        this.damage += 10;
+        
+        System.out.println(this);
     }
     
 }

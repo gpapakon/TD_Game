@@ -1,8 +1,12 @@
 #BlueJ class context
 comment0.target=Defenders
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Defenders\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
+comment1.params=fireRate\ damage\ level
+comment1.target=Defenders(int,\ int,\ int)
 comment2.params=
-comment2.target=void\ enemyDetector()
-numComments=3
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ enemyDetector()
+comment4.params=type
+comment4.target=void\ upgrate(java.lang.String)
+numComments=5

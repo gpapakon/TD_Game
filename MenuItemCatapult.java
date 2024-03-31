@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MenuItemCatapult extends DefenderMenuItem
 {
      public MenuItemCatapult() {
-        super("Catapult", 100, 200, new GreenfootImage("weapon_catapult_E.png"));
+        super("Catapult", 50, 50, new GreenfootImage("weapon_catapult_E.png"));
                 
     }
     
