@@ -13,7 +13,7 @@ public class Catapult extends Defenders
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Catapult(){
-        super(1,4, 0 );
+        super(100, 400, 0 );
     }
     
     public void act()
@@ -23,5 +23,10 @@ public class Catapult extends Defenders
     
      public void upgrate(String type){
         super.upgrate(type);
+    }
+    public int getDamage(){
+        
+        Stages stage = (Stages) getWorld();
+        return stage.ballista.damage;
     }
 }

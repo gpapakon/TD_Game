@@ -7,6 +7,6 @@ comment2.params=isSelected
 comment2.target=greenfoot.GreenfootImage\ createMenuItemImage(boolean)
 comment3.params=
 comment3.target=void\ act()
-comment4.params=upgrate\ defender
+comment4.params=upgrade\ defender
 comment4.target=void\ upgrate(java.lang.String,\ java.lang.String)
 numComments=5

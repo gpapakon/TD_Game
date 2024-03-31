@@ -125,6 +125,7 @@ public class DefenderMenuItem extends Actor
                 } else if (mouseY >= getY() - getImage().getHeight()/2 + 30 && mouseY < getY() + getImage().getHeight()/2) {
                     // Handle the second upgrade option click
                     System.out.println("Upgrade 2 selected for " + defenderName);
+                    upgrate("attack_speed", defenderName);
                 }
             }
             
@@ -132,16 +133,35 @@ public class DefenderMenuItem extends Actor
         }
     }
     
-    public void upgrate(String upgrate, String defender){
-        System.out.println(upgrate + " " + defender);
+    public void upgrate(String upgrade, String defender){
+        System.out.println(upgrade + " " + defender);
         Stages stage = (Stages) getWorld();
         
+        boolean hasMoney = false;
+        
+        if("attack".equals(upgrade) && stage.goldDisplay.gold >= upgradeCost1) {
+            hasMoney = true;
+            stage.goldDisplay.gold -= upgradeCost1;
+            upgradeCost1 += (int) (upgradeCost1 * 0.2);
+ 
+        } else if ( "attack_speed".equals(upgrade) && stage.goldDisplay.gold >= upgradeCost2 ) {
+           
+            hasMoney = true;
+            stage.goldDisplay.gold -= upgradeCost2;
+            upgradeCost2 += (int) (upgradeCost2 * 0.2);  
+            
+        }
+        
+        if( !hasMoney ){
+            return;
+        }
+        
         if( defender == "Ballista" ){
-            stage.ballista.upgrate(upgrate);
+            stage.ballista.upgrate(upgrade);
         }else if ( defender == "Cannon" ){
-            stage.cannon.upgrate(upgrate);
+            stage.cannon.upgrate(upgrade);
         }else{
-            stage.catapult.upgrate(upgrate);
+            stage.catapult.upgrate(upgrade);
         }
     }
 }

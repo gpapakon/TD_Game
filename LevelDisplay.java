@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class LevelDisplay extends GameInfo
 {
-    private int level;
+    public int level;
     
     public LevelDisplay(int initialLevel) {
         super(""); // Call the superclass constructor with an empty string

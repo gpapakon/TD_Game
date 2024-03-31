@@ -12,7 +12,8 @@ public class GoldDisplay extends GameInfo
      * Act - do whatever the GoldDisplay wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public int gold = 0;
+    public int gold = 500;
+    
     
     public GoldDisplay(){
         super("");
@@ -24,11 +25,10 @@ public class GoldDisplay extends GameInfo
         super.updateDisplay(text); 
     }
     
+   
     public void act()
     {
-        gold++;
         updateDisplay();
-        
     }
     
     public void addGold(int gold){

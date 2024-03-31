@@ -8,9 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class GameInfo extends Actor
 {
-    public int score = 0;
-    public int gold = 50;
-    
+       
     public GameInfo(String text) {
         updateDisplay(text);
     }
@@ -41,8 +39,5 @@ public class GameInfo extends Actor
         setImage(image);
     }
     
-    public void act()
-    {
-        this.gold++;
-    }
+    
 }

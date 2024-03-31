@@ -14,7 +14,7 @@ public class Ballista extends Defenders
      */
   
     public Ballista(){
-        super(2,2, 0 );
+        super(60,200, 0 );
     }
     
     public void act()
@@ -25,5 +25,11 @@ public class Ballista extends Defenders
     
     public void upgrate(String type){
         super.upgrate(type);
+    }
+    
+    public int getDamage(){
+        
+        Stages stage = (Stages) getWorld();
+        return stage.ballista.damage;
     }
 }

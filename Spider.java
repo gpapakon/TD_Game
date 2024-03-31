@@ -12,13 +12,9 @@ public class Spider extends Enemies
      * Act - do whatever the Spider wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
-    private int health = 5;
-    private int gold_reward = 2;
-    private int speed = 3;
-    
-    public Spider (){
-        super(5, 2,3);
+  
+    public Spider (int health, int speed){
+        super(health, 3, speed);
     }
     public void act()
     {

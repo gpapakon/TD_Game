@@ -91,7 +91,6 @@ public class Enemies extends Actor
         Actor actorProjectile = getOneIntersectingObject(Projectile.class);
         if( actorProjectile != null ){
             Projectile projectile = (Projectile) actorProjectile;
-            
             this.health -= projectile.damage;
             getWorld().removeObject(projectile);
         }
@@ -99,6 +98,8 @@ public class Enemies extends Actor
         if( health < 1){
             getWorld().removeObject(this);
             stage.goldDisplay.addGold(this.gold_reward);
+            stage.scoreDisplay.score += 5;
+            stage.enemies_killed++;
         }
     }
 }

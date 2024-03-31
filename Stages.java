@@ -20,9 +20,10 @@ public class Stages extends World
     public int gold_per_second = 5;
     public int game_speed = 1; // in secs
     public int game_timer = 0;
+    public int enemies_killed = 0;
     
-    private LevelDisplay levelDisplay;
-    private ScoreDisplay scoreDisplay;
+    public LevelDisplay levelDisplay;
+    public ScoreDisplay scoreDisplay;
     public GoldDisplay goldDisplay;
     
     public Defenders selected_defender;
@@ -83,29 +84,54 @@ public class Stages extends World
             game_intervals();
             game_timer = 0;
         }
-        
+        check_for_levelup();
         addInTowers();
     }
     
+    public void check_for_levelup(){
+        
+       if( enemies_killed >= 10 ){
+           enemies_killed -= 10;
+           levelDisplay.level ++;
+       }
+       
+    }
+    
+    
     public void game_intervals(){
-        //this.gold += this.gold_per_second;
         spawn_enemies();
+        goldDisplay.addGold(gold_per_second);
     }
     
     
     public void spawn_enemies(){
-        addObject(new Spider(),spawn_x, spawn_y);
+        
+         
+        //health,speed
+        //addObject(new Spider(100 * levelDisplay.level * 10 + 200  , 3),spawn_x, spawn_y);
+        addObject(new Spider(200 + (int )( 100 * levelDisplay.level * 0.15 )  , 3),spawn_x, spawn_y);
     }
     
     
     
     public void addInTowers(){
        
-      
-       
-       
-        if(Greenfoot.mouseClicked(null) && Greenfoot.getMouseInfo().getActor() instanceof  TowerSocket  ){
-            addObject(new Ballista(), ( Greenfoot.getMouseInfo().getX() / 60  )* 60 + 30 ,( Greenfoot.getMouseInfo().getY() / 60   )* 60 +30 );
+        if(Greenfoot.mouseClicked(null) && Greenfoot.getMouseInfo().getActor() instanceof  TowerSocket &&
+        goldDisplay.gold >= 50 ){
+            
+            Defenders def;
+            if( selected_defender instanceof Ballista  ){
+               def = new Ballista();
+            }else if( selected_defender instanceof Cannon ){
+                def = new Cannon();
+            }else{
+                def = new Catapult();
+            }
+        
+        
+            addObject(def, ( Greenfoot.getMouseInfo().getX() / 60  )* 60 + 30 ,( Greenfoot.getMouseInfo().getY() / 60   )* 60 +30 );
+        
+            goldDisplay.gold -= 50;
         }
         
     }
