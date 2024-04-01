@@ -19,11 +19,14 @@ public class Enemies extends Actor
     private int health;
     private int gold_reward;
     private int speed;
+    private String image;
+    private int image_index = 1;
     
-    public Enemies (int health ,int gold_reward, int speed ){
+    public Enemies (int health ,int gold_reward, int speed, String image ){
         this.health = health;
         this.gold_reward = gold_reward;
         this.speed = speed;
+        this.image = image;
         
         
         
@@ -32,18 +35,47 @@ public class Enemies extends Actor
     public void act()
     {
         // Add your action code here.
-        
-        timer++;
-        
-        if( timer > 60 * tick ){
-            moveToNextBlock(); 
-            timer = 0;
+        try {
+            timer++;
+            
+            if(timer > 60 * tick) {
+                moveToNextBlock();
+                timer = 0;
+            }
+            hitByProjectile();
+            isOnWorldBorder();
+        } catch (Exception e) {
+            System.err.println("Error in act: " + e.getMessage());
+            // Handle the exception (e.g., reset the timer or log the error)
         }
-        hitByProjectile();
+    
+       
                  
     }
     
-    
+    public void isOnWorldBorder() {
+        // Get the world and the actor's position
+        World world = getWorld();
+        int x = getX();
+        int y = getY();
+        boolean reachStageEnd = false;
+        // Check against world boundaries
+        if (x <= 0 || x >= world.getWidth() - 1) {
+            // Actor is on the left or right edge
+            reachStageEnd =  true;
+        } else if (y <= 0 || y >= world.getHeight() - 1) {
+            // Actor is on the top or bottom edge
+            reachStageEnd =  true;
+        }
+        
+        if( reachStageEnd ){
+            Stages stage = (Stages) getWorld();
+            stage.healthDisplay.health -= 5;
+            getWorld().removeObject(this);
+        }
+        
+        
+    }
     
     
     public void moveToNextBlock(){
@@ -53,6 +85,13 @@ public class Enemies extends Actor
         
         int x_offset = 0;
         int y_offset = 0;
+        
+        
+        
+        
+        setImage(image + image_index + ".png");
+           
+        image_index = image_index >= 2 ? 1 : 2;
         
         
         

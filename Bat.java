@@ -6,15 +6,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Spider extends Enemies
+public class Bat extends Enemies
 {
     /**
      * Act - do whatever the Spider wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
       
-    public Spider (int health, int speed){
-        super(health, 3, speed, "spider_");
+    public Bat (int health, int speed){
+        super(health, 3, speed, "bat_");
     }
     public void act()
     {

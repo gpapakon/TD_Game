@@ -25,6 +25,7 @@ public class Stages extends World
     public LevelDisplay levelDisplay;
     public ScoreDisplay scoreDisplay;
     public GoldDisplay goldDisplay;
+    public HealthDisplay healthDisplay;
     
     public Defenders selected_defender;
     public Ballista ballista = new Ballista();
@@ -49,6 +50,8 @@ public class Stages extends World
         addObject(goldDisplay, 725, 75);
         scoreDisplay = new ScoreDisplay();
         addObject(scoreDisplay, 725, 125);
+        healthDisplay = new HealthDisplay();
+        addObject(healthDisplay, 720, 555);
         
         GreenfootImage defenderImage = new GreenfootImage("defender.png");   
         
@@ -106,10 +109,18 @@ public class Stages extends World
     
     public void spawn_enemies(){
         
-         
-        //health,speed
-        //addObject(new Spider(100 * levelDisplay.level * 10 + 200  , 3),spawn_x, spawn_y);
-        addObject(new Spider(200 + (int )( 100 * levelDisplay.level * 0.15 )  , 3),spawn_x, spawn_y);
+        int randomNumber = (int)(Math.random() * 100);
+    
+        if (randomNumber < 40) {
+            // 0-39: 40% chance to spawn a Spider
+            addObject(new Spider(200 + (int)(150 * levelDisplay.level * 0.85), 3), spawn_x, spawn_y);
+        } else if (randomNumber < 80) {
+            // 40-79: 40% chance to spawn a Bat
+            addObject(new Bat(100 + (int)(200 * levelDisplay.level * 0.80), 5), spawn_x, spawn_y);
+        } else {
+            // 80-99: 20% chance to spawn a Worm
+            addObject(new Worm(500 + (int)(100 * levelDisplay.level * 0.75), 2), spawn_x, spawn_y);
+        }
     }
     
     

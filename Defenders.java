@@ -57,14 +57,19 @@ public class Defenders extends Actor
             fireLoad = 0;
             
             Enemies firstEnemy = enemies.get(0);
-            Projectile projectile = new Projectile(this.getGlobalDefender().damage);
-            getWorld().addObject(projectile, getX(), getY());
-            projectile.turnTowards(firstEnemy.getX(), firstEnemy.getY());
+            this.fire(firstEnemy,  getX(), getY() );
             this.turnTowards(firstEnemy.getX(), firstEnemy.getY());
 
         }
        
         
+    }
+    
+    public void fire(Enemies enemy, int x, int y )
+    {
+       Projectile projectile = new Rock(this.getGlobalDefender().damage);
+        getWorld().addObject(projectile, x, y);
+        projectile.turnTowards(enemy.getX(), enemy.getY());
     }
     
      public void upgrate(String type){

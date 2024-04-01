@@ -29,4 +29,12 @@ public class Cannon extends Defenders
         Stages stage = (Stages) getWorld();
         return stage.ballista.damage;
     }
+    
+    @Override
+    public void fire(Enemies enemy, int x, int y )
+    {
+       Projectile projectile = new Bomb(this.getGlobalDefender().damage);
+        getWorld().addObject(projectile, x, y);
+        projectile.turnTowards(enemy.getX(), enemy.getY());
+    }
 }

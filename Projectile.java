@@ -14,12 +14,14 @@ public class Projectile extends Actor
      */
     
     public int damage;
-    public Projectile (int damage){
+    public String image; 
+    
+    public Projectile (int damage, String image){
         this.damage = damage;
+        this.image = image;
     }
     public void act()
     {
-        // Add your action code here.
-        move(8);
+        move(6);
     }
 }
