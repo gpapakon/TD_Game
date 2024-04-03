@@ -15,6 +15,7 @@ public class Enemies extends Actor
 
     private double tick= 0.05; //in seconds
     private int timer = 0;
+    private int animate_timer = 0;
     
     private int health;
     private int gold_reward;
@@ -37,20 +38,32 @@ public class Enemies extends Actor
         // Add your action code here.
         try {
             timer++;
+            animate_timer++;
             
             if(timer > 60 * tick) {
                 moveToNextBlock();
                 timer = 0;
             }
+            
+            if( animate_timer > 150 * tick ){
+                animate_timer = 0;
+                animate();
+            }
             hitByProjectile();
             isOnWorldBorder();
         } catch (Exception e) {
-            System.err.println("Error in act: " + e.getMessage());
-            // Handle the exception (e.g., reset the timer or log the error)
+           
+           
         }
     
        
                  
+    }
+    
+     public void animate(){
+        setImage(image + image_index + ".png"); 
+        image_index = image_index >= 2 ? 1 : 2;
+
     }
     
     public void checkGameOver() {
@@ -92,6 +105,7 @@ public class Enemies extends Actor
         
     }
     
+   
     
     public void moveToNextBlock(){
         Stages stage = (Stages) getWorld();
@@ -100,16 +114,8 @@ public class Enemies extends Actor
         
         int x_offset = 0;
         int y_offset = 0;
-        
-        
-        
-        
-        setImage(image + image_index + ".png");
-           
-        image_index = image_index >= 2 ? 1 : 2;
-        
-        
-        
+ 
+          
         if(getRotation() == 0){
             x_offset = - 25;
             y_offset = 0;

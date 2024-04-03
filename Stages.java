@@ -77,7 +77,6 @@ public class Stages extends World
              selected_defender = cannon;
         }
         
-        System.out.println(selected_defender);
     }
     
     public void act(){

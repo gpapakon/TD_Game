@@ -80,7 +80,6 @@ public class Defenders extends Actor
             this.fireRate += (int) this.fireRate * 0.1;
         }
         
-        System.out.println(this);
     }
     
 }

@@ -115,16 +115,12 @@ public class DefenderMenuItem extends Actor
             
            
             stage.setSelectedDefender(defenderName);
-            System.out.println(mouseX);
+        
             
             if( mouseX >= 700){
                 if (mouseY >= getY() - getImage().getHeight()/2 && mouseY < getY() - getImage().getHeight()/2 + 60) {
-                    // Handle the first upgrade option click
-                    System.out.println("Upgrade 1 selected for " + defenderName);
                     upgrate("attack", defenderName);
                 } else if (mouseY >= getY() - getImage().getHeight()/2 + 30 && mouseY < getY() + getImage().getHeight()/2) {
-                    // Handle the second upgrade option click
-                    System.out.println("Upgrade 2 selected for " + defenderName);
                     upgrate("attack_speed", defenderName);
                 }
             }
@@ -134,8 +130,7 @@ public class DefenderMenuItem extends Actor
     }
     
     public void upgrate(String upgrade, String defender){
-        System.out.println(upgrade + " " + defender);
-        Stages stage = (Stages) getWorld();
+            Stages stage = (Stages) getWorld();
         
         boolean hasMoney = false;
         
