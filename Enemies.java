@@ -53,6 +53,20 @@ public class Enemies extends Actor
                  
     }
     
+    public void checkGameOver() {
+    // Example condition: Check if the player has no lives left
+    Stages stage = (Stages) getWorld();
+    
+    if( stage.healthDisplay.health <= 0 ){
+        stage.healthDisplay.health = 0;
+         stage.healthDisplay.drawBackground();
+        GameOver gameOverScreen = new GameOver(stage.scoreDisplay.score);
+        getWorld().addObject(gameOverScreen, getWorld().getWidth() / 2, getWorld().getHeight() / 2);
+        Greenfoot.stop();
+    }
+    
+}
+
     public void isOnWorldBorder() {
         // Get the world and the actor's position
         World world = getWorld();
@@ -71,6 +85,7 @@ public class Enemies extends Actor
         if( reachStageEnd ){
             Stages stage = (Stages) getWorld();
             stage.healthDisplay.health -= 5;
+            checkGameOver();
             getWorld().removeObject(this);
         }
         

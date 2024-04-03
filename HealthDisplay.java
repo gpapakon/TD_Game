@@ -15,18 +15,19 @@ public class HealthDisplay extends GameInfo {
     }
     
     public void act() {
+        drawBackground();
         
-        this.game_timer++;
-        if(game_timer >= 1 * 60 ){
-            animateDots();
-            game_timer = 0;
-        }
+        //this.game_timer++;
+        //if(game_timer >= 1 * 60 ){
+        //    animateDots();
+        //    game_timer = 0;
+        //}
         
         
     }
     
     // Method to draw the initial background
-   private void drawBackground() {
+   public void drawBackground() {
     background.setColor(Color.RED);
     background.fill();
     
