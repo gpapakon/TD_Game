@@ -15,13 +15,13 @@ public class HealthDisplay extends GameInfo {
     }
     
     public void act() {
-        drawBackground();
+       
         
-        //this.game_timer++;
-        //if(game_timer >= 1 * 60 ){
-        //    animateDots();
-        //    game_timer = 0;
-        //}
+        this.game_timer++;
+        if(game_timer >= 1 * 60 ){
+            animateDots();
+            game_timer = 0;
+        }
         
         
     }
@@ -34,7 +34,7 @@ public class HealthDisplay extends GameInfo {
     // Add text for current health
     String healthText =  health + " %" ;
    
-     Font currentFont = background.getFont();
+    Font currentFont = background.getFont();
     Font newFont = currentFont.deriveFont( 25); // Adjust the size as needed
     background.setFont(newFont);
 
@@ -49,8 +49,7 @@ public class HealthDisplay extends GameInfo {
     
     // Method to animate the dots
     private void animateDots() {
-        drawBackground(); // Redraw background to move dots
-        // Optionally, implement more sophisticated animation logic here
+        drawBackground(); 
     }
 
 }
