@@ -24,11 +24,7 @@ public class Stage_1 extends Stages
         {0,0,0,0,0,0,0,0,0,2},
     };
     
-    
-    
-    
-    
-    
+        
     /**
      * Constructor for objects of class Stage_1.
      * 
