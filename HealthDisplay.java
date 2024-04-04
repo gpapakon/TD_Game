@@ -20,8 +20,11 @@ public class HealthDisplay extends GameInfo {
         this.game_timer++;
         if(game_timer >= 1 * 60 ){
             animateDots();
+             spawnBubble();
             game_timer = 0;
         }
+        
+        
         
         
     }
@@ -40,8 +43,6 @@ public class HealthDisplay extends GameInfo {
 
     background.setColor(Color.WHITE); 
 
-
-
     background.drawString(healthText, 90, 50);
 
     setImage(background);
@@ -50,6 +51,19 @@ public class HealthDisplay extends GameInfo {
     // Method to animate the dots
     private void animateDots() {
         drawBackground(); 
+    }
+    
+   private void spawnBubble() {
+        Vector upVector = new Vector(270, 2); 
+        int topBound = getY() - height / 2; 
+        int minX = getX() - width / 2; 
+        int maxX = getX() + width / 2; 
+        int bubbleX = Greenfoot.getRandomNumber(maxX - minX) + minX; 
+    
+        int bubbleY = getY() + height / 2;
+
+        Bubble bubble = new Bubble(upVector, topBound);
+        getWorld().addObject(bubble, bubbleX, bubbleY);
     }
 
 }
