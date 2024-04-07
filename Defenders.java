@@ -48,7 +48,7 @@ public class Defenders extends Actor
     }
     
     public void enemyDetector(){
-        List<Enemies> enemies = getObjectsInRange(100, Enemies.class);
+        List<Enemies> enemies = getObjectsInRange(180, Enemies.class);
          fireLoad++;
          
          int interval = 60 / (fireRate / 60);

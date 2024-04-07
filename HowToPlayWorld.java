@@ -15,11 +15,18 @@ public class HowToPlayWorld extends World {
     }
     
     private void prepareMenu() {
+       
+        
+        TextActor howToPlay = new TextActor("How to Play", 24, Color.WHITE, new Color(0, 0, 0, 0)); // Transparent background
+        addObject(howToPlay, getWidth() / 2, getHeight() / 2 - 75);
+       
+        String howToPlayText = "You are the last line of defense.\n Do not let the enemies pass throught.\n Every second it passes enemies are getting spawned.\n You need to kill them using defenders, each defender costs 50 gold. \n You are getting gold as time passes or when you kill enemies. \n Every time you kill 10 enemies the level increases \n and so does the strength of the enemies. ";
+        TextActor instructionsText = new TextActor(howToPlayText, 24, Color.WHITE, new Color(0, 0, 0, 0)); // Transparent background
+        addObject(instructionsText, getWidth() / 2, getHeight() / 2 + 50);
+        
         Button startingScreenButton = new StartingScreenButton();
+        addObject(startingScreenButton, getWidth() / 2 + 280, getHeight() /  2 + 175);
         
-
-        
-        addObject(startingScreenButton, getWidth() / 2, getHeight() / 2 - 50);
     }
     
     public void drawMap(){

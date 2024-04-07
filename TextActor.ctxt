@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=TextActor
+comment1.params=text\ fontSize\ foreground\ background
+comment1.target=TextActor(java.lang.String,\ int,\ greenfoot.Color,\ greenfoot.Color)
+numComments=2

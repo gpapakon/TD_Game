@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class StartingScreenButton extends Button
 {
    public StartingScreenButton() {
-        super("How to Play");
+        super("Starting Screen");
     }
 
     @Override
