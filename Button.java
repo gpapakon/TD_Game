@@ -27,9 +27,9 @@ public class Button extends Actor {
     }
 
     private void updateImage() {
-        // Use white color for text by default
+        
         Color textColor = Color.WHITE;
-        // Change text color to light gray on hover
+        
         if (isHover) {
             textColor = new Color(200, 200, 200); // Light gray color
         }

@@ -14,7 +14,7 @@ public class Ballista extends Defenders
      */
   
     public Ballista(){
-        super(60,200, 0 );
+        super(100,200, 0 );
     }
     
     public void act()

@@ -13,7 +13,7 @@ public class Catapult extends Defenders
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Catapult(){
-        super(100, 400, 0 );
+        super(75, 350, 0 );
     }
     
     public void act()

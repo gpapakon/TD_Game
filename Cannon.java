@@ -13,7 +13,7 @@ public class Cannon extends Defenders
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Cannon(){
-        super(100, 300, 0 );
+        super(60, 300, 0 );
     }
     
     public void act()
