@@ -34,7 +34,7 @@ public class Stages extends World
     
     public Stages(int spawn_x, int spawn_y)
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        
         super(840, 600, 1);
         setSelectedDefender("Ballista");
         this.spawn_x = spawn_x;

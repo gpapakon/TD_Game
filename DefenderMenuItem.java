@@ -49,29 +49,29 @@ public class DefenderMenuItem extends Actor
         font = font.deriveFont(20); // Makes the font bold
         image.setFont(font);
         
-           // Draw the defender name
+           
         image.setColor(Color.WHITE);
-        image.drawString(defenderName, 10, 30); // Adjust text positioning as needed
+        image.drawString(defenderName, 10, 30); 
         
-        GreenfootImage coinImage = new GreenfootImage("coin.png"); // Ensure "coin.png" is in your project's images directory
+        GreenfootImage coinImage = new GreenfootImage("coin.png"); 
         GreenfootImage damageImage = new GreenfootImage("attack.png");
         GreenfootImage attackspeedImage = new GreenfootImage("attackspeed.png");
-        int newWidth = 20; // Set the new width as desired
-        int newHeight = 20; // Set the new height as desired
-        coinImage.scale(newWidth, newHeight); // Scale the image
+        int newWidth = 20; 
+        int newHeight = 20;
+        coinImage.scale(newWidth, newHeight); 
         damageImage.scale(newWidth, newHeight);
         attackspeedImage.scale(newWidth, newHeight);
         
-        int coinX = 110; // Starting X position for the coin, adjust as needed
-        int coinY1 = 50; // Y position for the first upgrade option, adjust as needed
-        int coinY2 = 80; // Y position for the second upgrade option, adjust as needed
+        int coinX = 110; 
+        int coinY1 = 50; 
+        int coinY2 = 80; 
         int textWidthEstimate = 50; 
        
         int damageImageX = coinX + coinImage.getWidth() + 5 + textWidthEstimate;
         int padding = 5; 
         
-        int borderTotalWidth = coinImage.getWidth() + textWidthEstimate + padding * 2 + 27; // Adjust this based on your layout
-        int borderHeight = 25; // Adjust the height based on your content size
+        int borderTotalWidth = coinImage.getWidth() + textWidthEstimate + padding * 2 + 27; 
+        int borderHeight = 25;
         
         image.drawRect(coinX - padding, coinY1 - padding, borderTotalWidth, borderHeight);
         image.drawRect(coinX - padding, coinY2 - padding, borderTotalWidth, borderHeight);
